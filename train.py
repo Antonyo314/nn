@@ -17,16 +17,14 @@ y_train = df_train['output']
 X_test = df_test.drop(['output'], axis=1)
 y_test = df_test['output']
 
-scaler = StandardScaler()
 X_train = X_train.replace({' ': 0})
-X_train = scaler.fit_transform(X_train)
 
-steps = [('scaler', StandardScaler()), ('SVM', MLPClassifier(hidden_layer_sizes=(10, 10,)))]
+steps = [('scaler', StandardScaler()), ('MLPClassifier', MLPClassifier(hidden_layer_sizes=(10, 10,)))]
 pipeline = Pipeline(steps)
 
 pipeline.fit(X_train, y_train)
 
-y_test_pred = pipeline.predict(scaler.transform(X_test.replace({' ': 0})))
+y_test_pred = pipeline.predict(X_test.replace({' ': 0}))
 
 print(f'точность модели на тестовой выборке: {round(accuracy_score(y_test, y_test_pred) * 100, 2)}%')
 
