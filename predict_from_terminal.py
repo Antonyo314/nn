@@ -1,7 +1,7 @@
 import numpy as np
 from joblib import load
 
-# загружаем модель (весь пайплафн)
+# загружаем модель (весь пайплайн)
 model = load('model.joblib')
 
 # создаем пустой список

@@ -4,7 +4,7 @@ from joblib import load
 # открываем excel файл
 df_to_pred = pd.read_excel('data/to_predict.xlsx')
 
-#загружаем модель (весь пайплафн)
+#загружаем модель (весь пайплайн)
 model = load('model.joblib')
 
 #делаем предсказание, выводим результат переводя из чисел в названия классов
